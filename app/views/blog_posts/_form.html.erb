@@ -1,0 +1,24 @@
+<%= form_for @blog_post do |f| %>
+<!--  form_for @item, url: dashboard_item_path(@item) do |f| -->
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :summary %>
+    <%= f.text_field :summary %>
+  </p>
+
+  <p>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </p>
+
+  <p>
+    <%= f.label :published %>
+    <%= f.date_field :published %>
+  </p>
+
+  <%= f.submit %>
+<% end %>

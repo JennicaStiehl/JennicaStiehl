@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <h1> <%= @user.first_name  %> <%= @user.last_name  %> </h1>
+  <div class="row">
+  <div class="col-7">
+
+  <div class="card" >
+    <div class="card-header">Summary</div>
+      <div class="card-body">
+        <% @summary.each do |resume_item| %>
+          <p class="card-text"><%= resume_item.description %></p>
+        </div>
+      </div>
+      <% end %>
+      <div class="card">
+        <div class="card-header">Projects</div>
+        <div class="card-body">
+          <% @projects.each do |resume_item| %>
+          <h6 class="card-subtitle"><%= resume_item.title %></h6>
+          <p class="card-text"><%= resume_item.description %></p>
+          <p><%= resume_item.source_code %> | <%= resume_item.production_site %></p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">Experience</div>
+        <div class="card-body">
+          <% @experience.each do |resume_item| %>
+            <h6 class="card-subtitle"><%= resume_item.title %></h6>
+              <p class="card-text"><%= resume_item.description %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+<div class="col-5">
+  <div class="card">
+    <div class="card-header">Contact</div>
+    <div class="card-body">
+        <li class="card-text"><%= link_to nil, @user.linkedin_profile %></li>
+        <li class="card-text"><%= link_to nil, @user.github_handle %></li>
+        <li class="card-text"><%= link_to nil, @user.twitter_handle %></li>
+        <li class="card-text"><%= @user.email %></li>
+        <li class="card-text"><%= number_to_phone(@user.phone) %></li>
+        <li class="card-text"><%= @user.location %></li>
+    </div>
+  </div>
+
+    <div class="card">
+      <div class="card-header">Skills</div>
+      <div class="card-body">
+        <% @skills.each do |resume_item| %>
+          <li class="card-text"><%= resume_item.description %></li>
+        <% end %>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">Education</div>
+        <div class="card-body">
+            <% @education.each do |resume_item| %>
+              <h6 class="card-subtitle"><%= resume_item.title %></h6>
+                <p class="card-text"><%= resume_item.description %></p>
+              <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

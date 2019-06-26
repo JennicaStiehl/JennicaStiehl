@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JennicaStiehl</title>
+    <title>MySite</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <%= link_to "Home", '/' %>
+        <%= link_to "Resume", '/resume' %>
+        <%= link_to "Blog", '/blog_posts' %>
+
+        <!-- < if current_user >
+          <= link_to "Log out", logout_path > <!--, method: :delete >
+        < else >
+          <= link_to "Register as a User", new_user_path >
+          <= link_to "Login", login_path >
+        < end >
+      -->
+      </nav>
+      <div class="container" id="body-content-no-nav">
+      <% flash.each do |flash_type, flash_message| %>
+        <% if flash_message.class == Array %>
+          <% flash_message.each do |single_message| %>
+            <div class="alert alert-<%= flash_type %>" role="alert"><%= single_message %></div>
+          <% end %>
+        <% else %>
+          <div class="alert alert-<%= flash_type %>" role="alert"><%= flash_message %></div>
+        <% end %>
+      <% end %>
     <%= yield %>
   </body>
 </html>

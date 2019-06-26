@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-7">
+      <div class="card" >
+        <div class="card-header"><%= @blog_post.title %>  || <%= @blog_post.published %></div>
+          <div class="card-body">
+            <p><%= @blog_post.summary %></p>
+            <p><%= @blog_post.content %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card">
+          <div class="card-header">All Posts</div>
+          <% @blog_posts.each do |blog_post| %>
+          <div class="card-body">
+              <li class="card-text"> <%= link_to blog_post.title, blog_post_path(id: blog_post)  %></li>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+    </div>
+  </div>

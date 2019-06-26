@@ -1,0 +1,13 @@
+<h1>Blog Posts</h1>
+<% BlogPost.get_all.each do |blog_post| %>
+<div class="card" style="width: 72rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to blog_post.title, blog_post_path(id: blog_post) %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= blog_post.published %></h6>
+    <p class="card-text"><%= blog_post.summary %></p>
+    </div>
+  </div>
+  <% end %>
+  <div class="add">
+    <%= link_to "Add a post", new_blog_post_path %>
+  </div>
